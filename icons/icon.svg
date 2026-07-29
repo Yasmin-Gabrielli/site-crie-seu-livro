@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="bookGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="penGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Icon Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Outer Glow Ring -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="4"/>
+
+  <!-- Book Icon Group -->
+  <g filter="url(#shadow)" transform="translate(0, 10)">
+    <!-- Book Left Spine & Pages -->
+    <path d="M 120 160 C 180 145, 236 170, 256 185 L 256 360 C 236 345, 180 325, 120 340 Z" fill="url(#bookGrad)"/>
+    <!-- Book Right Spine & Pages -->
+    <path d="M 392 160 C 332 145, 276 170, 256 185 L 256 360 C 276 345, 332 325, 392 340 Z" fill="url(#bookGrad)" opacity="0.92"/>
+
+    <!-- Spine Divider Line -->
+    <line x1="256" y1="185" x2="256" y2="360" stroke="#cbd5e1" stroke-width="4"/>
+
+    <!-- Book Lines Left -->
+    <line x1="150" y1="210" x2="230" y2="222" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+    <line x1="150" y1="245" x2="230" y2="257" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+    <line x1="150" y1="280" x2="210" y2="290" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Book Lines Right -->
+    <line x1="282" y1="222" x2="362" y2="210" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+    <line x1="282" y1="257" x2="362" y2="245" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+    <line x1="282" y1="290" x2="342" y2="280" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Fountain Pen / Quill Feather overlay -->
+    <path d="M 370 120 C 310 150, 270 230, 260 280 L 250 330 L 285 305 C 315 270, 370 200, 390 140 Z" fill="url(#penGrad)"/>
+    <path d="M 260 280 L 245 345 L 290 310 Z" fill="#d97706"/>
+    <!-- Glowing nib tip spark -->
+    <circle cx="242" cy="348" r="8" fill="#fef08a"/>
+  </g>
+</svg>

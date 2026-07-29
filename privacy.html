@@ -7,6 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Configurações PWA e Ícones -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Fanfics">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 </head>
 <body>
     <header>
@@ -17,6 +28,7 @@
             <a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a>
             <a href="terms.html"><i class="fas fa-file-contract"></i> Termos de Uso</a>
             <a href="privacy.html" class="active"><i class="fas fa-shield-alt"></i> Política de Privacidade</a>
+            <button class="btn btn-install pwa-install-btn" style="display: none;"><i class="fas fa-download"></i> Instalar App</button>
         </nav>
     </header>
 
@@ -98,5 +110,7 @@
             <a href="privacy.html" class="active">Política de Privacidade</a>
         </nav>
     </footer>
+    <script src="app.js"></script>
+    <script src="pwa.js"></script>
 </body>
 </html>

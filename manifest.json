@@ -1,0 +1,56 @@
+{
+  "name": "Escrevendo Fanfics - Editor de Livros",
+  "short_name": "Fanfics",
+  "description": "Escreva fanfics, histórias e livros no seu celular ou computador com suporte offline completo e exportação em PDF e EPUB.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["productivity", "books", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Escrever Nova História",
+      "short_name": "Novo",
+      "description": "Abrir o editor para escrever uma nova história",
+      "url": "./index.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Minhas Histórias",
+      "short_name": "Histórias",
+      "description": "Ver e gerenciar livros gravados",
+      "url": "./stories.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -835,3 +835,103 @@ footer nav a:hover {
     gap: 0.75rem;
     margin-top: 1.5rem;
 }
+
+/* ==========================================================================
+   PWA & Offline UI Components
+   ========================================================================== */
+
+/* Botão de Instalação na Navegação */
+.btn-install {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border: none;
+    font-weight: 600 !important;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-install:hover {
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Toast Container */
+.pwa-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+}
+
+.pwa-toast {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    border-left: 5px solid #6366f1;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pwa-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.pwa-toast-success {
+    border-left-color: #10b981;
+}
+
+.pwa-toast-warning {
+    border-left-color: #f59e0b;
+}
+
+.pwa-toast-info {
+    border-left-color: #3b82f6;
+}
+
+.pwa-toast-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.pwa-toast-close:hover {
+    color: #ffffff;
+}
+
+.pwa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+body.is-offline {
+    border-top: 4px solid #f59e0b;
+}
