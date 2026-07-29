@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escrevendo Fanfics - Editor de Histórias Online</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/core@latest/dist/tiptap.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/starter-kit@latest/dist/tiptap.starter-kit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-open"></i> Escrevendo Fanfics</h1>
+        <nav>
+            <a href="index.html" class="active"><i class="fas fa-pen-fancy"></i> Escrever</a>
+            <a href="stories.html"><i class="fas fa-book"></i> Minhas Histórias</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Escreva suas histórias e livros</h2>
+            <p>Editor rico em recursos com suporte a múltiplas páginas, capas, mídias (imagem, áudio, vídeo), exportação para PDF/EPUB e armazenamento local automático</p>
+        </section>
+
+        <section class="editor-section">
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <input type="text" id="story-title" placeholder="Título da história..." class="story-title-input">
+                    <button class="btn btn-primary" onclick="newStory()"><i class="fas fa-plus"></i> Nova História</button>
+                    <button class="btn btn-secondary" onclick="saveStory()"><i class="fas fa-save"></i> Salvar</button>
+                    <button class="btn btn-cover" onclick="openCoverModal()"><i class="fas fa-image"></i> Capa do Livro</button>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-success" onclick="exportPDF()"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+                    <button class="btn btn-purple" onclick="exportEPUB()"><i class="fas fa-book"></i> Exportar EPUB</button>
+                    <button class="btn btn-info" onclick="openStoryModal()"><i class="fas fa-folder-open"></i> Abrir</button>
+                    <div class="status-indicator" id="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Salvo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-view badge for cover if set -->
+            <div id="cover-preview-container" style="display: none;" class="cover-badge-preview">
+                <img id="cover-badge-img" class="cover-badge-img" src="" alt="Capa">
+                <div class="cover-badge-info">
+                    <strong>Capa do Livro Adicionada</strong>
+                    <p style="font-size: 0.8rem; color: #64748b;">Esta capa será incluída no topo do seu PDF e EPUB.</p>
+                </div>
+                <button class="action-btn delete-btn" onclick="removeCoverImage()" title="Remover Capa">
+                    <i class="fas fa-trash"></i> Remover Capa
+                </button>
+            </div>
+
+            <!-- Multi-page controls bar -->
+            <div class="pages-bar-container">
+                <div class="pages-tabs-wrapper" id="pages-tabs-wrapper">
+                    <!-- Page tabs will be rendered here dynamically -->
+                </div>
+                <div class="pages-actions">
+                    <button class="btn btn-sm btn-primary" onclick="addPage()" title="Adicionar nova página"><i class="fas fa-plus"></i> Página</button>
+                    <button class="action-btn" onclick="renameCurrentPage()" title="Renomear página"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn" onclick="movePageLeft()" title="Mover página para esquerda"><i class="fas fa-arrow-left"></i></button>
+                    <button class="action-btn" onclick="movePageRight()" title="Mover página para direita"><i class="fas fa-arrow-right"></i></button>
+                    <button class="action-btn delete-btn" onclick="deleteCurrentPage()" title="Excluir página"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div id="editor" class="editor-container"></div>
+        </section>
+
+        <!-- Story List Modal -->
+        <div id="story-list-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-book"></i> Minhas Histórias</h3>
+                    <button class="close-btn" onclick="closeStoryModal()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-box">
+                        <input type="text" id="search-stories" placeholder="Pesquisar histórias...">
+                    </div>
+                    <div id="stories-grid" class="stories-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cover Upload Modal -->
+        <div id="cover-modal" class="modal">
+            <div class="modal-content" style="max-width: 500px;">
+                <div class="modal-header">
+                    <h3><i class="fas fa-image"></i> Adicionar Capa do Livro</h3>
+                    <button class="close-btn" onclick="closeCoverModal()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="media-modal-option">
+                        <label><i class="fas fa-upload"></i> Selecionar arquivo de imagem do computador:</label>
+                        <input type="file" id="cover-file-input" accept="image/*">
+                    </div>
+                    <div class="media-modal-option" style="text-align: center; margin: 1rem 0; color: #64748b;">
+                        <span>- OU -</span>
+                    </div>
+                    <div class="media-modal-option">
+                        <label><i class="fas fa-link"></i> Endereço URL da Imagem:</label>
+                        <input type="text" id="cover-url-input" placeholder="https://exemplo.com/capa.jpg">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" onclick="closeCoverModal()">Cancelar</button>
+                        <button class="btn btn-primary" onclick="confirmCoverSelection()">Salvar Capa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Upload Modal (Image / Audio / Video) -->
+        <div id="media-modal" class="modal">
+            <div class="modal-content" style="max-width: 550px;">
+                <div class="modal-header">
+                    <h3 id="media-modal-title"><i class="fas fa-photo-video"></i> Inserir Mídia</h3>
+                    <button class="close-btn" onclick="closeMediaModal()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="media-type-target" value="image">
+                    
+                    <div class="media-modal-option">
+                        <label><i class="fas fa-upload"></i> Upload de Arquivo Local:</label>
+                        <input type="file" id="media-file-input" accept="image/*,audio/*,video/*">
+                    </div>
+                    <div class="media-modal-option" style="text-align: center; margin: 1rem 0; color: #64748b;">
+                        <span>- OU -</span>
+                    </div>
+                    <div class="media-modal-option">
+                        <label><i class="fas fa-link"></i> URL da Mídia (ou Link de Embed):</label>
+                        <input type="text" id="media-url-input" placeholder="Digite a URL da imagem, áudio ou vídeo...">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" onclick="closeMediaModal()">Cancelar</button>
+                        <button class="btn btn-primary" onclick="confirmMediaInsertion()">Inserir Mídia</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escrevendo Fanfics. Suas histórias, sua criatividade. Funciona totalmente offline!</p>
+        <nav>
+            <a href="contact.html">Contato</a>
+            <a href="terms.html">Termos de Uso</a>
+            <a href="privacy.html">Política de Privacidade</a>
+        </nav>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

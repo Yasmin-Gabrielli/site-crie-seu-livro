@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Escrevendo Fanfics</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/core@latest/dist/tiptap.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/starter-kit@latest/dist/tiptap.starter-kit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-open"></i> Escrevendo Fanfics</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-pen-fancy"></i> Escrever</a>
+            <a href="stories.html"><i class="fas fa-book"></i> Minhas Histórias</a>
+            <a href="about.html" class="active"><i class="fas fa-info-circle"></i> Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Sobre o Escrevendo Fanfics</h2>
+            <p>Seus escritores de fanfics em português, sem complicações</p>
+        </section>
+
+        <section class="editor-section">
+            <div class="about-content">
+                <h3>Nossa Missão</h3>
+                <p>Nosso editor de fanfics foi criado para proporcionar um espaço poderoso e intuitivo onde escritores podem criar histórias incríveis sem complicações técnicas. Funciona totalmente offline e salva automaticamente no seu navegador.</p>
+
+                <h3>Funcionalidades Principais</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Editor de texto rico com formatação avançada (negrito, itálico, listas, citações, etc.)</li>
+                    <li><i class="fas fa-check-circle"></i> Exportação fácil para PDF - baixe suas histórias em formato PDF profissional</li>
+                    <li><i class="fas fa-check-circle"></i> Salvar automático e armazenamento local através do localforage</li>
+                    <li><i class="fas fa-check-circle"></i> Gerenciamento completo de histórias (novo, abrir, duplicar, excluir)</li>
+                    <li><i class="fas fa-check-circle"></i> Barra de ferramentas abrangente com atalhos de teclado</li>
+                    <li><i class="fas fa-check-circle"></i> Visualização completa de suas histórias em um só lugar</li>
+                </ul>
+
+                <h3>Recursos para Escritores</h3>
+                <p>Nosso editor foi projetado especificamente para o gênero de fanfics, com ferramentas que facilitam a escrita criativa. Com o editor TipTap integrado, você pode facilmente formatar seu texto, adicionar links, inserir imagens, criar tabelas e muito mais. Tudo isso enquanto trabalha offline e com velocidade.</p>
+
+                <h3>Armazenamento Offline</h3>
+                <p>Nossa filosofia é de processo offline-first. Todos os seus dados permanecem no seu dispositivo através do armazenamento local (localStorage/IndexedDB), garantindo privacidade completa. Não são necessários servidores, registros ou serviços externos.</p>
+
+                <h3>Compatibilidade entre Dispositivos</h3>
+                <p>Suas histórias são salvas automaticamente no seu navegador. Você pode abrir o editor em qualquer dispositivo e continuar a partir do último ponto salvo.</p>
+
+                <h3>Community</h3>
+                <p>Embora focarmos na privacidade e no armazenamento local, acreditamos no poder da community. Compartilhe idéias, peça feedback e conecte-se com outros escritores através das plataformas que preferir.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escrevendo Fanfics. Suas histórias, sua criatividade. Funciona totalmente offline!</p>
+        <nav>
+            <a href="contact.html">Contato</a>
+            <a href="terms.html">Termos de Uso</a>
+            <a href="privacy.html">Política de Privacidade</a>
+        </nav>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Escrevendo Fanfics</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/core@latest/dist/tiptap.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/starter-kit@latest/dist/tiptap.starter-kit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-open"></i> Escrevendo Fanfics</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-pen-fancy"></i> Escrever</a>
+            <a href="stories.html"><i class="fas fa-book"></i> Minhas Histórias</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Entre em Contato</h2>
+            <p>Gostaria de saber mais sobre nós ou precisa de ajuda? Estamos aqui para ajudar!</p>
+        </section>
+
+        <section class="editor-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3><i class="fas fa-envelope"></i> Informações de Contato</h3>
+                    <div class="contact-item">
+                        <strong>Email:</strong> contato@escrevendofanfics.com<br>
+                        <strong>Telefone:</strong> +55 (11) 1234-5678<br>
+                        <strong>Endereço:</strong> São Paulo, SP, Brasil
+                    </div>
+
+                    <h3>Rede Social</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i> Discord</a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
+                    </div>
+
+                    <h3>Suporte Técnico</h3>
+                    <p>Precisa de ajuda com o editor? Nossa equipe de suporte está disponível 24/7 para responder às suas perguntas.</p>
+                    <ul class="support-options">
+                        <li><i class="fas fa-headset"></i> Chat ao vivo: 9:00 - 18:00 (BRT)</li>
+                        <li><i class="fas fa-envelope-open-text"></i> Suporte por email: resposta em até 24 horas</li>
+                        <li><i class="fas fa-question-circle"></i> Central de Ajuda: perguntas frequentes</li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h3><i class="fas fa-pencil-alt"></i> Envie-nos uma Mensagem</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" name="subject">
+                                <option value="general">Dúvida Geral</option>
+                                <option value="support">Suporte Técnico</option>
+                                <option value="bug">Relatar Bug</option>
+                                <option value="feature">Sugestão de Funcionalidade</option>
+                                <option value="partnership">Parceria</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escrevendo Fanfics. Suas histórias, sua criatividade. Funciona totalmente offline!</p>
+        <nav>
+            <a href="contact.html">Contato</a>
+            <a href="terms.html">Termos de Uso</a>
+            <a href="privacy.html">Política de Privacidade</a>
+        </nav>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

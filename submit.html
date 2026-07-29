@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar História - Escrevendo Fanfics</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-open"></i> Escrevendo Fanfics</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-pen-fancy"></i> Escrever</a>
+            <a href="stories.html"><i class="fas fa-book"></i> Minhas Histórias</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Envie sua Fanfic ou Livro</h2>
+            <p>Compartilhe sua escrita criativa com nossa comunidade</p>
+        </section>
+
+        <section class="editor-section">
+            <div class="about-content">
+                <h3>Diretrizes de Envio</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> As histórias devem ser originais ou fanfics respeitando os termos de uso.</li>
+                    <li><i class="fas fa-check-circle"></i> Classificação recomendada: Livre, 12+, 16+ ou 18+.</li>
+                    <li><i class="fas fa-check-circle"></i> Salve localmente no navegador antes de exportar em PDF ou EPUB.</li>
+                </ul>
+                
+                <form class="submission-form" onsubmit="event.preventDefault(); alert('Sua história foi registrada no seu armazenamento local!'); window.location.href='index.html';">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="story-title"><strong>Título da História:</strong></label>
+                        <input type="text" id="story-title" name="story-title" class="story-title-input" style="width:100%; margin-top: 0.5rem;" required>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="author-name"><strong>Seu Nome de Autor:</strong></label>
+                        <input type="text" id="author-name" name="author-name" class="story-title-input" style="width:100%; margin-top: 0.5rem;" required>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="story-content"><strong>Conteúdo:</strong></label>
+                        <textarea id="story-content" name="story-content" rows="10" style="width:100%; padding:0.8rem; border:1px solid #cbd5e1; border-radius:8px; margin-top:0.5rem;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar e Ir ao Editor</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escrevendo Fanfics. Suas histórias, sua criatividade. Funciona totalmente offline!</p>
+        <nav>
+            <a href="contact.html">Contato</a>
+            <a href="terms.html">Termos de Uso</a>
+            <a href="privacy.html">Política de Privacidade</a>
+        </nav>
+    </footer>
+</body>
+</html>

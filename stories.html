@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Histórias - Escrevendo Fanfics</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/core@latest/dist/tiptap.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tiptap/starter-kit@latest/dist/tiptap.starter-kit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book-open"></i> Escrevendo Fanfics</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-pen-fancy"></i> Escrever</a>
+            <a href="stories.html" class="active"><i class="fas fa-book"></i> Minhas Histórias</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Minhas Histórias e Livros</h2>
+            <p>Visualize, edite, gerencie e exporte todas as suas histórias em PDF ou EPUB</p>
+        </section>
+
+        <section class="editor-section">
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <a href="index.html" class="btn btn-primary"><i class="fas fa-plus"></i> Escrever Nova História</a>
+                </div>
+                <div class="toolbar-right">
+                    <div class="search-box" style="margin-bottom: 0;">
+                        <input type="text" id="search-stories" placeholder="Pesquisar histórias...">
+                    </div>
+                </div>
+            </div>
+
+            <div id="stories-grid" class="stories-grid">
+                <!-- Stories will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escrevendo Fanfics. Suas histórias, sua criatividade. Funciona totalmente offline!</p>
+        <nav>
+            <a href="contact.html">Contato</a>
+            <a href="terms.html">Termos de Uso</a>
+            <a href="privacy.html">Política de Privacidade</a>
+        </nav>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
